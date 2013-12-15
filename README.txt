@@ -1,3 +1,1 @@
 CARDMANAGER - v1.0
-
-x
