@@ -1,6 +1,7 @@
 package com.example.cardmanager.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Card{
 	
@@ -8,8 +9,7 @@ public class Card{
 	private int customerID;
 	private int supplierID;
 	private int nMaxEntries; 		// maximum number of necessary stamps to complete
-	private ArrayList<Stamp> stampList;//HashMap<String, Stamp> stampMap=new HashMap<String, Stamp>();
-
+	private ArrayList<Stamp> stampList;
 
 	/**
 	 * Class constructor
@@ -98,8 +98,8 @@ public class Card{
 	 * @param date
 	 * @param payment
 	 */
-	public void addStamp(String date, float payment){
-		Stamp myStamp = new Stamp(this.id, date, payment);
+	public void addStamp(float payment){
+		Stamp myStamp = new Stamp(new Date(), payment);
 		stampList.add(myStamp);
 	}
 }

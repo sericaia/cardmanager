@@ -1,9 +1,11 @@
 package com.example.cardmanager.domain;
 
+import java.util.Date;
+
 public class Stamp{
 
-	private int id;
-	private String date; 			//DDMMYYYY format
+	//database ID calculation: CONCAT(cardID+date)
+	private Date date; 				//DDMMYYYY format
 	private float payment;			//amount of money used
 	
 	/**
@@ -12,33 +14,20 @@ public class Stamp{
 	 * @param date
 	 * @param payment
 	 */
-	public Stamp(int id, String date, float payment) {
-		this.id = id;
+	public Stamp(Date date, float payment) {
 		this.date = date;
 		this.payment = payment;
 	}
 	/**
-	 * @return the cardID
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param cardID the cardID to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	/**
 	 * @return the date
 	 */
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	/**
