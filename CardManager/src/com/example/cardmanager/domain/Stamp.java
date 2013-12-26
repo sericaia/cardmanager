@@ -1,13 +1,10 @@
 package com.example.cardmanager.domain;
 
-import android.app.Application;
+public class Stamp{
 
-public class Stamp  extends Application{
-
-	private String cardID;
+	private long cardID;
 	private String date; 			//DMY format
 	private float payment;			//amount of money used
-
 	
 	/**
 	 * Class Contructor
@@ -15,7 +12,7 @@ public class Stamp  extends Application{
 	 * @param date
 	 * @param payment
 	 */
-	public Stamp(String cardID, String date, float payment) {
+	public Stamp(long cardID, String date, float payment) {
 		this.cardID = cardID;
 		this.date = date;
 		this.payment = payment;
@@ -23,13 +20,13 @@ public class Stamp  extends Application{
 	/**
 	 * @return the cardID
 	 */
-	public String getCardID() {
+	public long getCardID() {
 		return cardID;
 	}
 	/**
 	 * @param cardID the cardID to set
 	 */
-	public void setCardID(String cardID) {
+	public void setCardID(long cardID) {
 		this.cardID = cardID;
 	}
 	/**
