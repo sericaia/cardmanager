@@ -6,9 +6,9 @@ import android.app.Application;
 
 public class Card  extends Application{
 	
-	private String id;
-	private String customerID;
-	private String supplierID;
+	private long id;
+	private long customerID;
+	private long supplierID;
 	private int nMaxEntries; 		// maximum number of necessary stamps to complete
 	private ArrayList<Stamp> stampList;//HashMap<String, Stamp> stampMap=new HashMap<String, Stamp>();
 
@@ -20,7 +20,7 @@ public class Card  extends Application{
 	 * @param supplierID
 	 * @param nMaxEntries
 	 */
-	public Card(String id, String customerID, String supplierID, int nMaxEntries) {
+	public Card(long id, long customerID, long supplierID, int nMaxEntries) {
 		this.id = id;
 		this.customerID = customerID;
 		this.supplierID = supplierID;
@@ -30,37 +30,37 @@ public class Card  extends Application{
 	/**
 	 * @return the cardID
 	 */
-	public String getID() {
+	public long getID() {
 		return id;
 	}
 	/**
 	 * @param cardID the cardID to set
 	 */
-	public void setID(String id) {
+	public void setID(long id) {
 		this.id = id;
 	}
 	/**
 	 * @return the customerID
 	 */
-	public String getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
 	/**
 	 * @param customerID the customerID to set
 	 */
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
 	}
 	/**
 	 * @return the supplierID
 	 */
-	public String getSupplierID() {
+	public long getSupplierID() {
 		return supplierID;
 	}
 	/**
 	 * @param supplierID the supplierID to set
 	 */
-	public void setSupplierID(String supplierID) {
+	public void setSupplierID(long supplierID) {
 		this.supplierID = supplierID;
 	}
 	/**

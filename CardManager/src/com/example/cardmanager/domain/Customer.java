@@ -2,11 +2,10 @@ package com.example.cardmanager.domain;
 
 import java.util.ArrayList;
 
-import android.app.Application;
 
-public class Customer extends Application{
+public class Customer extends Person{
 
-	private String id; 			//auto-generated client ID
+	private long id; 			//auto-generated client ID
 	private long NIF;
 	private String name;
 	private int phoneNumber;
@@ -21,23 +20,21 @@ public class Customer extends Application{
 	 * @param phoneNumber
 	 * 	
 	 */
-	public Customer(String id, long nIF, String name, int phoneNumber) {
-		this.id = id;
-		NIF = nIF;
-		this.name = name;
+	public Customer(long id, long nIF, String name, int phoneNumber) {
+		super(id,nIF,name);
 		this.phoneNumber = phoneNumber;
 		this.cardList = new ArrayList<Card>();		
 	}
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	/**
@@ -92,7 +89,7 @@ public class Customer extends Application{
 	/**
 	 * creates a new card and adds it to card list	  
 	 */
-	public void addCard(String cardID, String supplierID, int nMaxEntries){
+	public void addCard(long cardID, long supplierID, int nMaxEntries){
 		Card myCard = new Card(cardID, this.id, supplierID, nMaxEntries);
 		cardList.add(myCard);
 	}

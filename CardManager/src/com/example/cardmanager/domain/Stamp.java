@@ -4,32 +4,32 @@ import android.app.Application;
 
 public class Stamp  extends Application{
 
-	private String cardID;
-	private String date; 			//DMY format
+	private long cardID;
+	private String date; 			//DDMMYYYY format
 	private float payment;			//amount of money used
 
 	
 	/**
 	 * Class Contructor
-	 * @param cardID
+	 * @param id
 	 * @param date
 	 * @param payment
 	 */
-	public Stamp(String cardID, String date, float payment) {
-		this.cardID = cardID;
+	public Stamp(long id, String date, float payment) {
+		this.cardID = id;
 		this.date = date;
 		this.payment = payment;
 	}
 	/**
 	 * @return the cardID
 	 */
-	public String getCardID() {
+	public long getCardID() {
 		return cardID;
 	}
 	/**
 	 * @param cardID the cardID to set
 	 */
-	public void setCardID(String cardID) {
+	public void setCardID(long cardID) {
 		this.cardID = cardID;
 	}
 	/**
