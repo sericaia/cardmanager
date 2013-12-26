@@ -5,18 +5,18 @@ public class Supplier extends Person{
 
 	/** 
 	 * Class Contructor
-	 * @param id
 	 * @param nIF
 	 * @param name
+	 * @param phonenumber
 	 */
-	public Supplier(int id, int nIF, String name) {
-		super(id,nIF,name);
+	public Supplier(int nIF, String name, int phoneNumber) {
+		super(nIF,name, phoneNumber);
 	}
 	/**
-	 * creates a new card and adds it to card list	  
+	 * creates a new card and adds it to card list, might be different in the future	  
 	 */
-	public void addCard(int customerID, int supplierID){
-		Card myCard = new Card(customerID, this.id);
+	public void addCard(int customerPhoneNumber, int supplierPhoneNumber){
+		Card myCard = new Card(customerPhoneNumber, supplierPhoneNumber);
 		cardMap.put((Integer)myCard.getID(), myCard);
 	}
 }

@@ -3,38 +3,22 @@ package com.example.cardmanager.domain;
 
 public class Customer extends Person{
 
-	private int phoneNumber;
 	/** 
 	 * Class Contructor
-	 * @param id
 	 * @param nIF
 	 * @param name
 	 * @param phoneNumber
 	 * 	
 	 */
-	public Customer(int id, int nIF, String name, int phoneNumber) {
-		super(id,nIF,name);
-		this.phoneNumber = phoneNumber;	
+	public Customer(int nIF, String name, int phoneNumber) {
+		super(nIF,name,phoneNumber);
 	}
 	
 	/**
-	 * @return the phoneNumber
+	 * creates a new card and adds it to card list, might be different in the future
 	 */
-	public int getPhoneNumber() {
-		return phoneNumber;
-	}
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	/**
-	 * creates a new card and adds it to card list	  
-	 */
-	public void addCard(int customerID, int supplierID){
-		Card myCard = new Card(this.id, supplierID);
+	public void addCard(int customerPhoneNumber, int supplierPhoneNumber){
+		Card myCard = new Card(customerPhoneNumber, supplierPhoneNumber);
 		cardMap.put((Integer)myCard.getID(), myCard);
 	}
 

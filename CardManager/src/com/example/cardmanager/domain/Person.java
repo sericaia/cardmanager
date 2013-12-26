@@ -4,33 +4,21 @@ import java.util.HashMap;
 
 public abstract class Person {
 	
-	protected int id; 			//auto-generated supplier ID
 	protected int NIF;
 	protected String name;
+	protected int phoneNumber;
 	protected HashMap<Integer, Card> cardMap;
 	
 	/**
-	 * @param id
 	 * @param nIF
 	 * @param name
+	 * @param phoneNumber
 	 */
-	public Person(int id, int nIF, String name) {
-		this.id = id;
-		NIF = nIF;
+	public Person(int nIF, String name, int phoneNumber) {
+		this.NIF = nIF;
 		this.name = name;
+		this.phoneNumber = phoneNumber;
 		this.cardMap = new HashMap<Integer, Card>();
-	}
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
 	}
 	/**
 	 * @return the nIF
@@ -42,7 +30,7 @@ public abstract class Person {
 	 * @param nIF the nIF to set
 	 */
 	public void setNIF(int nIF) {
-		NIF = nIF;
+		this.NIF = nIF;
 	}
 	/**
 	 * @return the name
@@ -56,6 +44,19 @@ public abstract class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * @return the phoneNumber
+	 */
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber= phoneNumber;
+	}
+	
 	/**
 	 * @return the cardMap
 	 */
