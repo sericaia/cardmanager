@@ -2,7 +2,7 @@ package com.example.cardmanager.domain;
 
 public class Stamp{
 
-	private long id;
+	private int id;
 	private String date; 			//DDMMYYYY format
 	private float payment;			//amount of money used
 	
@@ -12,7 +12,7 @@ public class Stamp{
 	 * @param date
 	 * @param payment
 	 */
-	public Stamp(long id, String date, float payment) {
+	public Stamp(int id, String date, float payment) {
 		this.id = id;
 		this.date = date;
 		this.payment = payment;
@@ -20,13 +20,13 @@ public class Stamp{
 	/**
 	 * @return the cardID
 	 */
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param cardID the cardID to set
 	 */
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/**

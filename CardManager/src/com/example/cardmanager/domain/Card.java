@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Card{
 	
-	private long id;
-	private long customerID;
-	private long supplierID;
+	private int id;
+	private int customerID;
+	private int supplierID;
 	private int nMaxEntries; 		// maximum number of necessary stamps to complete
 	private ArrayList<Stamp> stampList;//HashMap<String, Stamp> stampMap=new HashMap<String, Stamp>();
 
@@ -18,47 +18,47 @@ public class Card{
 	 * @param supplierID
 	 * @param nMaxEntries
 	 */
-	public Card(long id, long customerID, long supplierID, int nMaxEntries) {
-		this.id = id;
+	public Card( int customerID, int supplierID) {
+		//this.id = id; TODO GENERATE ID
 		this.customerID = customerID;
 		this.supplierID = supplierID;
-		this.nMaxEntries = nMaxEntries;
+		//this.nMaxEntries = nMaxEntries; TODO GENERATE nMaxEntries, based on the supplier
 		this.stampList = new ArrayList<Stamp>();
 	}
 	/**
 	 * @return the cardID
 	 */
-	public long getID() {
+	public int getID() {
 		return id;
 	}
 	/**
 	 * @param cardID the cardID to set
 	 */
-	public void setID(long id) {
+	public void setID(int id) {
 		this.id = id;
 	}
 	/**
 	 * @return the customerID
 	 */
-	public long getCustomerID() {
+	public int getCustomerID() {
 		return customerID;
 	}
 	/**
 	 * @param customerID the customerID to set
 	 */
-	public void setCustomerID(long customerID) {
+	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 	/**
 	 * @return the supplierID
 	 */
-	public long getSupplierID() {
+	public int getSupplierID() {
 		return supplierID;
 	}
 	/**
 	 * @param supplierID the supplierID to set
 	 */
-	public void setSupplierID(long supplierID) {
+	public void setSupplierID(int supplierID) {
 		this.supplierID = supplierID;
 	}
 	/**
