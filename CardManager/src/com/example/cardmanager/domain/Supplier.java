@@ -7,7 +7,7 @@ import android.app.Application;
 public class Supplier extends Application{
 
 	private String id; 			//auto-generated supplier ID
-	private int NIF;
+	private long NIF;
 	private String name;
 	private ArrayList<Card> cardList;//HashMap<String, Card> cardMap=new HashMap<String, Card>();
 
@@ -18,7 +18,7 @@ public class Supplier extends Application{
 	 * @param nIF
 	 * @param name
 	 */
-	public Supplier(String id, int nIF, String name) {
+	public Supplier(String id, long nIF, String name) {
 		this.id = id;
 		NIF = nIF;
 		this.name = name;
@@ -37,17 +37,17 @@ public class Supplier extends Application{
 		this.id = id;
 	}
 	/**
-	 * @return the nIF
-	 */
-	public int getNIF() {
-		return NIF;
-	}
-	/**
 	 * @param nIF the nIF to set
 	 */
-	public void setNIF(int nIF) {
+	public void setNIF(long nIF) {
 		NIF = nIF;
 	}
+	/**
+	 * @return the nIF
+	 */
+	public long getNIF() {
+		return NIF;
+	}	
 	/**
 	 * @return the name
 	 */

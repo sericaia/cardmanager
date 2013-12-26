@@ -7,12 +7,12 @@ import android.app.Application;
 public class Customer extends Application{
 
 	private String id; 			//auto-generated client ID
-	private int NIF;
+	private long NIF;
 	private String name;
 	private int phoneNumber;
 	private ArrayList<Card> cardList = new ArrayList<Card>();//HashMap<String, Card> cardMap=new HashMap<String, Card>();
 	
-	
+
 	/** 
 	 * Class Contructor
 	 * @param id
@@ -21,7 +21,7 @@ public class Customer extends Application{
 	 * @param phoneNumber
 	 * 	
 	 */
-	public Customer(String id, int nIF, String name, int phoneNumber) {
+	public Customer(String id, long nIF, String name, int phoneNumber) {
 		this.id = id;
 		NIF = nIF;
 		this.name = name;
@@ -43,13 +43,13 @@ public class Customer extends Application{
 	/**
 	 * @return the nIF
 	 */
-	public int getNIF() {
+	public long getNIF() {
 		return NIF;
 	}
 	/**
 	 * @param nIF the nIF to set
 	 */
-	public void setNIF(int nIF) {
+	public void setNIF(long nIF) {
 		NIF = nIF;
 	}
 	/**
