@@ -1,7 +1,5 @@
 package com.example.cardmanager.domain;
 
-import java.util.ArrayList;
-
 
 public class Customer extends Person{
 
