@@ -70,9 +70,10 @@ public abstract class Person {
 		this.cardMap = cardMap;
 	}
 	/**
-	 * creates a new card and adds it to card list	  
+	 * Adds a card to the card list	  
 	 */
 	public void addCard(Card card){
+		cardMap.put((Integer)card.getId(), card);
 	}
 	
 }

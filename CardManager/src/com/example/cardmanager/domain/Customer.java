@@ -14,14 +14,14 @@ public class Customer extends Person implements IDomainPrettyPrinter{
 	 * 	
 	 */
 	public Customer(int nIF, String name, int phoneNumber) {
-		super(nIF,name,phoneNumber);
+		super(nIF, name, phoneNumber);
 	}
 	
 	/**
-	 * creates a new card and adds it to card list, might be different in the future
+	 * adds a new stamp to the respective card
 	 */
-	public void addCard(Card card){
-		cardMap.put((Integer)card.getId(), card);
+	public void addStamp(int supplierPhoneNumber, float payment){
+		getCardMap().get(supplierPhoneNumber).addStamp(payment);
 	}
 
 	/**
@@ -32,5 +32,4 @@ public class Customer extends Person implements IDomainPrettyPrinter{
 	public void accept(IDomainPrettyPrinterVisitor visitor) {
 		visitor.visit(this);		
 	}
-
 }
