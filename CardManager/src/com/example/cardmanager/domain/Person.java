@@ -72,7 +72,7 @@ public abstract class Person {
 	/**
 	 * creates a new card and adds it to card list	  
 	 */
-	public void addCard(int customerID, int supplierID){
+	public void addCard(Card card){
 	}
 	
 }

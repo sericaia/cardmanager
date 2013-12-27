@@ -17,9 +17,8 @@ public class Customer extends Person{
 	/**
 	 * creates a new card and adds it to card list, might be different in the future
 	 */
-	public void addCard(int customerPhoneNumber, int supplierPhoneNumber){
-		Card myCard = new Card(customerPhoneNumber, supplierPhoneNumber, cardMap.size());
-		cardMap.put((Integer)myCard.getId(), myCard);
+	public void addCard(Card card){
+		cardMap.put((Integer)card.getId(), card);
 	}
 
 }
