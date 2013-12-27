@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class Card{
 	
-	private int id;
-	private int customerID;
-	private int supplierID;
-	private int nMaxEntries; 		// maximum number of necessary stamps to complete
+	private int id; //customerPhoneNumber + code ranging from 000-999
+	private int customerPhoneNumber;
+	private int supplierPhoneNumber;
+	//private int nMaxEntries; 		// maximum number of necessary stamps to complete
 	private ArrayList<Stamp> stampList;
 
 	/**
@@ -18,61 +18,62 @@ public class Card{
 	 * @param supplierID
 	 * @param nMaxEntries
 	 */
-	public Card( int customerID, int supplierID) {
-		//this.id = id; TODO GENERATE ID
-		this.customerID = customerID;
-		this.supplierID = supplierID;
+	public Card(int customerPhoneNumber, int supplierPhoneNumber, int cardMapSize) {
+		//TODO generate ID here! replace the value 0
+		this.id = 0;
+		this.customerPhoneNumber = customerPhoneNumber;
+		this.supplierPhoneNumber = supplierPhoneNumber;
 		//this.nMaxEntries = nMaxEntries; TODO GENERATE nMaxEntries, based on the supplier
 		this.stampList = new ArrayList<Stamp>();
 	}
 	/**
-	 * @return the cardID
+	 * @return the id
 	 */
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 	/**
-	 * @param cardID the cardID to set
+	 * @param id the id to set
 	 */
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/**
-	 * @return the customerID
+	 * @return the customerPhoneNumber
 	 */
-	public int getCustomerID() {
-		return customerID;
+	public int getCustomerPhoneNumber() {
+		return customerPhoneNumber;
 	}
 	/**
-	 * @param customerID the customerID to set
+	 * @param customerPhoneNumber the customerID to set
 	 */
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
+	public void setCustomerPhoneNumber(int customerPhoneNumber) {
+		this.customerPhoneNumber = customerPhoneNumber;
 	}
 	/**
-	 * @return the supplierID
+	 * @return the supplierPhoneNumber
 	 */
-	public int getSupplierID() {
-		return supplierID;
+	public int getSupplierPhoneNumber() {
+		return supplierPhoneNumber;
 	}
 	/**
-	 * @param supplierID the supplierID to set
+	 * @param supplierPhoneNumber the supplierPhoneNumber to set
 	 */
-	public void setSupplierID(int supplierID) {
-		this.supplierID = supplierID;
+	public void setSupplierPhoneNumber(int supplierPhoneNumber) {
+		this.supplierPhoneNumber = supplierPhoneNumber;
 	}
-	/**
-	 * @return the nMaxEntries
-	 */
-	public int getnMaxEntries() {
-		return nMaxEntries;
-	}
-	/**
-	 * @param nMaxEntries the nMaxEntries to set
-	 */
-	public void setnMaxEntries(int nMaxEntries) {
-		this.nMaxEntries = nMaxEntries;
-	}
+//	/**
+//	 * @return the nMaxEntries
+//	 */
+//	public int getnMaxEntries() {
+//		return nMaxEntries;
+//	}
+//	/**
+//	 * @param nMaxEntries the nMaxEntries to set
+//	 */
+//	public void setnMaxEntries(int nMaxEntries) {
+//		this.nMaxEntries = nMaxEntries;
+//	}
 	/**
 	 * @return the stampList
 	 */
@@ -100,6 +101,7 @@ public class Card{
 	 */
 	public void addStamp(float payment){
 		Stamp myStamp = new Stamp(new Date(), payment);
+		//TODO verify if stamp already exists, if so, error
 		stampList.add(myStamp);
 	}
 }
