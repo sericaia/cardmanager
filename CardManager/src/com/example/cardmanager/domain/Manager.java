@@ -15,6 +15,72 @@ public class Manager implements IDomainPrettyPrinter{
 	private HashMap<Integer, Supplier> supplierMap;
 	private HashMap<Integer, Customer> customerMap;
 	
+	/**
+	 * @param supplierList
+	 * @param supplierMap
+	 * @param customerMap
+	 */
+	public Manager() {
+		this.supplierList = new ArrayList<String>();
+		this.supplierMap = new HashMap<Integer, Supplier>();
+		this.customerMap = new HashMap<Integer, Customer>();		
+	}
+
+	/**
+	 * @param supplierList
+	 * @param supplierMap
+	 * @param customerMap
+	 */
+	public Manager(ArrayList<String> supplierList,
+			HashMap<Integer, Supplier> supplierMap,
+			HashMap<Integer, Customer> customerMap) {
+		this.supplierList = supplierList;
+		this.supplierMap = supplierMap;
+		this.customerMap = customerMap;
+	}
+
+	/**
+	 * @return the supplierList
+	 */
+	public ArrayList<String> getSupplierList() {
+		return supplierList;
+	}
+
+	/**
+	 * @param supplierList the supplierList to set
+	 */
+	public void setSupplierList(ArrayList<String> supplierList) {
+		this.supplierList = supplierList;
+	}
+
+	/**
+	 * @return the supplierMap
+	 */
+	public HashMap<Integer, Supplier> getSupplierMap() {
+		return supplierMap;
+	}
+
+	/**
+	 * @param supplierMap the supplierMap to set
+	 */
+	public void setSupplierMap(HashMap<Integer, Supplier> supplierMap) {
+		this.supplierMap = supplierMap;
+	}
+
+	/**
+	 * @return the customerMap
+	 */
+	public HashMap<Integer, Customer> getCustomerMap() {
+		return customerMap;
+	}
+
+	/**
+	 * @param customerMap the customerMap to set
+	 */
+	public void setCustomerMap(HashMap<Integer, Customer> customerMap) {
+		this.customerMap = customerMap;
+	}
+
 	void assignCard(int customerPhoneNumber, int supplierPhoneNumber){
 		
 		Card myCard = new Card(customerPhoneNumber, supplierPhoneNumber,10);
@@ -71,12 +137,16 @@ public class Manager implements IDomainPrettyPrinter{
 	public void accept(IDomainPrettyPrinterVisitor visitor) {
 		visitor.visit(this);
 		
-		for(Customer customer : customerMap.values()) {
+		if(!customerMap.isEmpty()){
+			for(Customer customer : customerMap.values()) {
 			customer.accept(visitor);
-        }
-		for(Supplier supplier : supplierMap.values()) {
-            supplier.accept(visitor);
-        }
+			}
+		}
+		if(!supplierMap.isEmpty()){
+			for(Supplier supplier : supplierMap.values()) {
+	            supplier.accept(visitor);
+	        }
+		}
 				
 	}
 }

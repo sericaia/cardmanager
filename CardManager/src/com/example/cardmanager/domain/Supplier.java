@@ -17,6 +17,11 @@ public class Supplier extends Person implements IDomainPrettyPrinter{
 		super(nIF, name, phoneNumber);
 	}
 	
+	public Supplier() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+
 	/**
 	 * adds a new stamp to the respective card
 	 */

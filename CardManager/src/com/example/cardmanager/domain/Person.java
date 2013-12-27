@@ -20,6 +20,9 @@ public abstract class Person {
 		this.phoneNumber = phoneNumber;
 		this.cardMap = new HashMap<Integer, Card>();
 	}
+	
+	public Person(){
+	}
 	/**
 	 * @return the nIF
 	 */
