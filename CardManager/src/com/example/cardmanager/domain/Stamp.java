@@ -2,7 +2,10 @@ package com.example.cardmanager.domain;
 
 import java.util.Date;
 
-public class Stamp{
+import com.example.cardmanager.domain.test.IDomainPrettyPrinter;
+import com.example.cardmanager.domain.test.IDomainPrettyPrinterVisitor;
+
+public class Stamp implements IDomainPrettyPrinter{
 
 	//database ID calculation: CONCAT(cardID+date)
 	private Date date; 				//DDMMYYYY format
@@ -43,6 +46,13 @@ public class Stamp{
 		this.payment = payment;
 	}
 	
-
+	/**
+	 * Pretty Printer Visitor in action
+	 * @param visitor
+	 */
+	@Override
+	public void accept(IDomainPrettyPrinterVisitor visitor) {
+		visitor.visit(this);		
+	}
 
 }
