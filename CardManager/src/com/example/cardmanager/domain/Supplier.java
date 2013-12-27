@@ -7,15 +7,17 @@ public class Supplier extends Person{
 	 * Class Contructor
 	 * @param nIF
 	 * @param name
-	 * @param phonenumber
+	 * @param phoneNumber
+	 * 
 	 */
 	public Supplier(int nIF, String name, int phoneNumber) {
-		super(nIF,name, phoneNumber);
+		super(nIF, name, phoneNumber);
 	}
+	
 	/**
-	 * creates a new card and adds it to card list, might be different in the future	  
+	 * adds a new stamp to the respective card
 	 */
-	public void addCard(Card card){
-		cardMap.put((Integer)card.getId(), card);
+	public void addStamp(int customerPhoneNumber, float payment){
+		getCardMap().get(customerPhoneNumber).addStamp(payment);
 	}
 }
