@@ -1,7 +1,10 @@
 package com.example.cardmanager.domain;
 
+import com.example.cardmanager.domain.test.IDomainPrettyPrinter;
+import com.example.cardmanager.domain.test.IDomainPrettyPrinterVisitor;
 
-public class Supplier extends Person{
+
+public class Supplier extends Person implements IDomainPrettyPrinter{
 
 	/** 
 	 * Class Contructor
@@ -19,5 +22,14 @@ public class Supplier extends Person{
 	 */
 	public void addStamp(int customerPhoneNumber, float payment){
 		getCardMap().get(customerPhoneNumber).addStamp(payment);
+	}
+	
+	/**
+	 * Pretty Printer Visitor in action
+	 * @param visitor
+	 */
+	@Override
+	public void accept(IDomainPrettyPrinterVisitor visitor) {
+		visitor.visit(this);		
 	}
 }

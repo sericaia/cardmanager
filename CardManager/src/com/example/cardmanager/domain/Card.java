@@ -3,7 +3,10 @@ package com.example.cardmanager.domain;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Card{
+import com.example.cardmanager.domain.test.IDomainPrettyPrinter;
+import com.example.cardmanager.domain.test.IDomainPrettyPrinterVisitor;
+
+public class Card implements IDomainPrettyPrinter{
 	
 	private int id; //customerPhoneNumber + code ranging from 000-999
 	private int customerPhoneNumber;
@@ -103,5 +106,14 @@ public class Card{
 		Stamp myStamp = new Stamp(new Date(), payment);
 		//TODO verify if stamp already exists, if so, error
 		stampList.add(myStamp);
+	}
+	
+	/**
+	 * Pretty Printer Visitor in action
+	 * @param visitor
+	 */
+	@Override
+	public void accept(IDomainPrettyPrinterVisitor visitor) {
+		visitor.visit(this);		
 	}
 }

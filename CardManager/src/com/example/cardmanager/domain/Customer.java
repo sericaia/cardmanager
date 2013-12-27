@@ -32,5 +32,4 @@ public class Customer extends Person implements IDomainPrettyPrinter{
 	public void accept(IDomainPrettyPrinterVisitor visitor) {
 		visitor.visit(this);		
 	}
-
 }

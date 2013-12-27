@@ -3,9 +3,12 @@ package com.example.cardmanager.domain;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Manager {
+import com.example.cardmanager.domain.test.IDomainPrettyPrinter;
+import com.example.cardmanager.domain.test.IDomainPrettyPrinterVisitor;
 
-	private Person loginPerson; //login user
+public class Manager implements IDomainPrettyPrinter{
+
+	private Person loginUser; //login user
 	
 	private ArrayList<String> supplierList; //list of suppliers (for now the name, but in the future should be important to have other information like location, phone number, etc).
 	
@@ -30,19 +33,21 @@ public class Manager {
 		return customerMap.get(customerPhoneNumber);
 	}
 	
-	void createSupplier(){
+	void createSupplier(){//login, create new account
 		
 	}
-	void createCustomer(){}
+	void createCustomer(){}//login, create new account
 	
 	/**
 	 * Adds stamp to 
 	 * @param supplierPhoneNumber
 	 * @param payment
 	 */
-	void assignStamp(int supplierPhoneNumber, float payment){
-		getCustomer(loginPerson.getPhoneNumber()).getCardMap().get(supplierPhoneNumber).addStamp(payment);
-		getSupplier(supplierPhoneNumber).getCardMap().get(supplierPhoneNumber).addStamp(payment);
+	void addStamp(int supplierPhoneNumber, float payment){
+		
+		getCustomer(loginUser.getPhoneNumber()).addStamp(supplierPhoneNumber, payment);
+		getSupplier(supplierPhoneNumber).addStamp(loginUser.getPhoneNumber(), payment);
+		
 	}
 	
 	/** 
@@ -53,5 +58,25 @@ public class Manager {
 		//TODO 
 		return 0;
 		
+	}
+	
+	void login(){}
+	void logout(){}
+	
+	/**
+	 * Pretty Printer Visitor in action
+	 * @param visitor
+	 */
+	@Override
+	public void accept(IDomainPrettyPrinterVisitor visitor) {
+		visitor.visit(this);
+		
+		for(Customer customer : customerMap.values()) {
+			customer.accept(visitor);
+        }
+		for(Supplier supplier : supplierMap.values()) {
+            supplier.accept(visitor);
+        }
+				
 	}
 }
