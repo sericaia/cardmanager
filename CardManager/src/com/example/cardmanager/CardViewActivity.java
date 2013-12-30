@@ -37,8 +37,7 @@ public class CardViewActivity extends Activity {
 	    //set new font
 	    final Typeface fontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), 
     			CustomFontsLoader.FONT_NAME_4_ELLIANAPATH);
-	 	
-	    final StableArrayAdapter adapter = new StableArrayAdapter(this,
+	 		    final StableArrayAdapter adapter = new StableArrayAdapter(this,
 	        android.R.layout.simple_list_item_1, list){	    
 	    /*	@Override
 	        public View getView(int position, View convertView, ViewGroup parent) {
