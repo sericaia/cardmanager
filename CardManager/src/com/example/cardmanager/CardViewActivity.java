@@ -7,11 +7,14 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CardViewActivity extends Activity {
@@ -30,10 +33,22 @@ public class CardViewActivity extends Activity {
 	    for (int i = 0; i < values.length; ++i) {
 	      list.add(values[i]);
 	    }
+	    
+	    //set new font
+	    final Typeface fontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), 
+    			CustomFontsLoader.FONT_NAME_4_ELLIANAPATH);
+	 	
 	    final StableArrayAdapter adapter = new StableArrayAdapter(this,
-	        android.R.layout.simple_list_item_1, list);
+	        android.R.layout.simple_list_item_1, list){	    
+	    /*	@Override
+	        public View getView(int position, View convertView, ViewGroup parent) {
+	            ViewGroup view = (ViewGroup) super.getView(position, convertView, parent);
+	            if(convertView == null) CardViewActivity.setAppFont(view, fontsStyle);
+	            return view;
+	        }*/
+	    };
 	    listview.setAdapter(adapter);
-
+	   
 	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 	      @Override
@@ -45,6 +60,32 @@ public class CardViewActivity extends Activity {
 	      }
 	    });
 	  }  
+	  
+	  /*
+	   * Set font to views
+	   */
+	  public static final void setAppFont(ViewGroup mContainer, Typeface mFont)
+	  {
+	      if (mContainer == null || mFont == null) return;
+
+	      final int mCount = mContainer.getChildCount();
+
+	      // Loop through all of the children.
+	      for (int i = 0; i < mCount; ++i)
+	      {
+	          final View mChild = mContainer.getChildAt(i);
+	          if (mChild instanceof TextView)
+	          {
+	              // Set the font if it is a TextView.
+	              ((TextView) mChild).setTypeface(mFont);
+	          }
+	          else if (mChild instanceof ViewGroup)
+	          {
+	              // Recursively attempt another ViewGroup.
+	              setAppFont((ViewGroup) mChild, mFont);
+	          }
+	      }
+	  }
 	  
 	  /*
 	   * openCardData creates new activities for each card, showing stamps achieved

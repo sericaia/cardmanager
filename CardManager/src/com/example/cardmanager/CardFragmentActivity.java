@@ -1,6 +1,8 @@
 package com.example.cardmanager;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
@@ -25,6 +27,12 @@ public class CardFragmentActivity extends Activity {
 	    	//adds title
 	 	    TextView fragmentName = (TextView)findViewById(R.id.fragmentName);
 	 	    fragmentName.setText(receivedName + " information (location? tel number? winner code?)");
+	 	    
+	 
+	 	    Typeface fontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), CustomFontsLoader.FONT_NAME_1_ARIAL);
+	 	    fragmentName.setTypeface(fontsStyle);
+
+	 	   
 	 	    this.setTitle(receivedName);
 	     }
 	    }

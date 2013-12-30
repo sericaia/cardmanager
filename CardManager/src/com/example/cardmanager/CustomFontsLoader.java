@@ -1,28 +1,31 @@
 package com.example.cardmanager;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.widget.TextView;
 
 public class CustomFontsLoader {
 
-	public static final int FONT_NAME_1 =   0;
-	public static final int FONT_NAME_2 =   1;
-	public static final int FONT_NAME_3 =   2;
+	public static final int FONT_NAME_1_ARIAL =   0;
+	public static final int FONT_NAME_2_GILLSANS =   1;
+	public static final int FONT_NAME_3_CUPCAKES =   2;
+	public static final int FONT_NAME_4_ELLIANAPATH =   3;
 	
-	private static final int NUM_OF_CUSTOM_FONTS = 3;
+	private static final int NUM_OF_CUSTOM_FONTS = 4;
 	
 	private static boolean fontsLoaded = false;
 	
-	private static Typeface[] fonts = new Typeface[3];
+	private static Typeface[] fonts = new Typeface[NUM_OF_CUSTOM_FONTS];
 	
 	//TODO - Add fonts
 	private static String[] fontPath = {
-	    "fonts/FONT_NAME_1.ttf",
-	    "fonts/FONT_NAME_2.ttf",
-	    "fonts/FONT_NAME_3.ttf"
+	    "fonts/arial.ttf",
+	    "fonts/GLSNECB.TTF",	
+	    "fonts/JellykaCuttyCupcakes.ttf",
+	    "fonts/EllianarellesPath.ttf"
 	};
-	
-	
+		
 	/**
 	 * Returns a loaded custom font based on it's identifier. 
 	 * 
@@ -39,11 +42,11 @@ public class CustomFontsLoader {
 	}
 	
 	
-	private static void loadFonts(Context context) {
+	static void loadFonts(Context context) {
 	    for (int i = 0; i < NUM_OF_CUSTOM_FONTS; i++) {
 	        fonts[i] = Typeface.createFromAsset(context.getAssets(), fontPath[i]);
 	    }
 	    fontsLoaded = true;
-	
 	}
+	
 }
