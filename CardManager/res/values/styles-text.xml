@@ -1,0 +1,32 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+<style name="UiTitleTextView">
+    <item name="android:textColor">#f77825</item><!-- Orange -->
+    <item name="android:textSize">20sp</item>
+    <item name="android:typeface">sans</item>
+    <item name="android:shadowColor">#ffffff</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">2</item>
+    <item name="android:shadowRadius">3</item>
+</style>
+
+<style name="UiNormalTextView">
+    <item name="android:textColor">#554236</item><!-- Brown -->
+    <item name="android:textSize">17sp</item>
+    <item name="android:typeface">sans</item>
+    <item name="android:shadowColor">#ffffff</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">2</item>
+    <item name="android:shadowRadius">3</item>
+</style>
+
+
+
+<!-- backgound color -->
+    <color name="beige">#f1efa5</color>
+    <color name="blue">#60b99a</color>
+    <color name="orange">#f77825</color>
+    <color name="brown">#492e1d</color>
+    <color name="green">#d3ce3d</color>
+    <color name="actionbar_title_color">#554236</color>
+</resources>

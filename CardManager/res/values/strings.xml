@@ -2,8 +2,16 @@
 <resources>
 
     <string name="app_name">CardManager</string>
+    <string name="card_fragment">Card Fragment</string>
+    
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="beijinhos">O Pedro deve mil beijinhos à Daniela! tou à espera...</string>
 
+    <string name="fragment_name">insert fragment name</string>
+    <string name="fragment_date">insert date</string>
+    
+    
+
+    
 </resources>
