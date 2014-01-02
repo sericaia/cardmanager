@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">CardManager</string>
+    <string name="card_listview">Card List</string>
     <string name="card_fragment">Card Fragment</string>
     
     <string name="action_settings">Settings</string>
@@ -12,6 +13,15 @@
     <string name="fragment_date">insert date</string>
     
     
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="new_sign_up">New to CardManager? Sign Up!</string>
 
+    <string name="sign_in_google">Sign In using Google</string>
+    <string name="sign_in_facebook">Sign In using Facebook</string>
+    
+    
     
 </resources>
