@@ -6,11 +6,103 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/beige"
     tools:context=".MainActivity" >
 
-  <TextView
+    
+     <TextView
+        android:id="@+id/appWelcomeLogo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textAppearance="@style/UiAppTitleTextView"/>
+    
+    <EditText
+        android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_below="@+id/appWelcomeLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="@string/username"
+        android:ems="10" >
+        <requestFocus />
+    </EditText>
 
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:hint="@string/password"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:text="@string/sign_in" />
+    
+    <LinearLayout 
+        android:id="@+id/linearlayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:layout_marginTop="10dp"
+	    android:layout_below="@+id/signInButton"
+	    android:gravity="center" >
+   
+        <Button
+        android:id="@+id/signIn_google_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="5"
+        android:text="@string/sign_in_google"/>
+        
+        <Button
+        android:id="@+id/signIn_facebook_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:gravity="center"         
+        android:ems="5"
+        android:text="@string/sign_in_facebook"/>
+         
+	</LinearLayout>
+   
+    
+    <TextView
+        android:id="@+id/newsignUp"
+        android:layout_width="fill_parent" 
+   		android:layout_height="wrap_content" 
+    	android:gravity="center"
+        android:layout_below="@+id/linearlayout"
+        android:layout_marginTop="30dp"
+        android:text="@string/new_sign_up"
+        android:textAppearance="@style/UiNormalTextView" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newsignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:text="@string/sign_up"
+        />
+    
+    
+  
+    
 </RelativeLayout>

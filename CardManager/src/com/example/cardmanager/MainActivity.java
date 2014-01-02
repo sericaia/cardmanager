@@ -22,10 +22,12 @@ public class MainActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 	    actionBar.hide();
 	    
+	    //add style to app name textbox
 	    TextView app_name = (TextView) findViewById(R.id.appWelcomeLogo);
 	    Typeface cupcakeFontsStyle = CustomFontsLoader.getTypeface(getBaseContext(), CustomFontsLoader.FONT_NAME_3_CUPCAKES);
 	    app_name.setTypeface(cupcakeFontsStyle, Typeface.BOLD);
-	    	 
+	   
+	    //add style to 'newsignup' textbox
 	    TextView newsignUp = (TextView) findViewById(R.id.newsignUp);
 	    Typeface arialFontsStyle = CustomFontsLoader.getTypeface(getBaseContext(), CustomFontsLoader.FONT_NAME_1_ARIAL);
 	    newsignUp.setTypeface(arialFontsStyle);

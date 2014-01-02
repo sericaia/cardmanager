@@ -29,8 +29,8 @@ public class CardFragmentActivity extends Activity {
 	 	    fragmentName.setText(receivedName + " information (location? tel number? winner code?)");
 	 	    
 	 
-	 	    Typeface fontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), CustomFontsLoader.FONT_NAME_1_ARIAL);
-	 	    fragmentName.setTypeface(fontsStyle);
+	 	    Typeface arialFontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), CustomFontsLoader.FONT_NAME_1_ARIAL);
+	 	    fragmentName.setTypeface(arialFontsStyle);
 
 	 	   
 	 	    this.setTitle(receivedName);

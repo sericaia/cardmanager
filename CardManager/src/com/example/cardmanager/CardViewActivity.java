@@ -1,101 +1,50 @@
 package com.example.cardmanager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import android.app.Activity;
-import android.content.Context;
+import android.app.ListActivity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class CardViewActivity extends Activity {
+public class CardViewActivity extends ListActivity {
 	
 	  @Override
 	  protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_cardlistview);
 	    
 	    //to allow Up navigation with the app icon in the action bar
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 	    
-	    final ListView listview = (ListView) findViewById(R.id.cardlistview);
+	    //change background color programmatically
+	    getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.beige));
 	    
 	    //TODO ir buscar a base de dados, bem como as imagens
-	    String[] values = new String[] { "H3", "Chimarrão", "Restaurante da Sé" };
+	    String[] card_values = new String[] { "H3", "Chimarrão", "Restaurante da Sé" };
+	    String[] card_description = new String[] { "H3 description", "Chimarrão description", "Restaurante da Sé description" };
+		
+	    // Define a new Adapter
+	 	//Context, voucher name, voucher description
+	 	MyCardAdapter adapter = new MyCardAdapter(this, card_values, card_description);
 
-	    final ArrayList<String> list = new ArrayList<String>();
-	    for (int i = 0; i < values.length; ++i) {
-	      list.add(values[i]);
-	    }
-	    
-	    //set new font
-	    final Typeface fontsStyle = CustomFontsLoader.getTypeface(this.getBaseContext(), 
-    			CustomFontsLoader.FONT_NAME_4_ELLIANAPATH);
-	 		    final StableArrayAdapter adapter = new StableArrayAdapter(this,
-	        android.R.layout.simple_list_item_1, list){
-	 		    	
-	 		@Override  
-	 		public View getView(int position, View view, ViewGroup viewGroup)
-	 		  {
-	 		  View v = super.getView(position, view, viewGroup);
-	 		  
-	 		  Typeface fontsStyle = CustomFontsLoader.getTypeface(getBaseContext(), CustomFontsLoader.FONT_NAME_3_CUPCAKES);
-	 		  ((TextView)v).setTextAppearance(getBaseContext(), R.style.UiCardTitleTextView);
-	 		  ((TextView)v).setTypeface(fontsStyle, Typeface.BOLD);
-	 		  return v;
-	 		  }
-	    };
-	    
-	    listview.setAdapter(adapter);
-	   
-	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-	      @Override
-	      public void onItemClick(AdapterView<?> parent, final View view,
-	          int position, long id) {
-	        final String itemName = (String) parent.getItemAtPosition(position);
-	        
-	        openCardData(view, itemName);
-	      }
-	    });
-	  }  
+	 	// Assign adapter to ListView
+	 	setListAdapter(adapter); 	 			   
+	  } 
 	  
 	  /*
-	   * Set font to views
+	   * onListItemClick calls openCardData
 	   */
-	  public static final void setAppFont(ViewGroup mContainer, Typeface mFont)
-	  {
-	      if (mContainer == null || mFont == null) return;
-
-	      final int mCount = mContainer.getChildCount();
-
-	      // Loop through all of the children.
-	      for (int i = 0; i < mCount; ++i)
-	      {
-	          final View mChild = mContainer.getChildAt(i);
-	          if (mChild instanceof TextView)
-	          {
-	              // Set the font if it is a TextView.
-	              ((TextView) mChild).setTypeface(mFont);
-	          }
-	          else if (mChild instanceof ViewGroup)
-	          {
-	              // Recursively attempt another ViewGroup.
-	              setAppFont((ViewGroup) mChild, mFont);
-	          }
-	      }
-	  }
+		@Override
+		public void onListItemClick(ListView list, View view, int position, long id) {
+			try{		
+				final String itemName = (String) list.getItemAtPosition(position);
+		        openCardData(view, itemName);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	  
 	  /*
 	   * openCardData creates new activities for each card, showing stamps achieved
@@ -105,31 +54,6 @@ public class CardViewActivity extends Activity {
 		    intent.putExtra("FRAGMENT_NAME", itemName);
 		    startActivity(intent);
 		}
-
-	  private class StableArrayAdapter extends ArrayAdapter<String> {
-
-	    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-	    public StableArrayAdapter(Context context, int textViewResourceId,
-	        List<String> objects) {
-	      super(context, textViewResourceId, objects);
-	      for (int i = 0; i < objects.size(); ++i) {
-	        mIdMap.put(objects.get(i), i);
-	      }
-	    }
-
-	    @Override
-	    public long getItemId(int position) {
-	      String item = getItem(position);
-	      return mIdMap.get(item);
-	    }
-
-	    @Override
-	    public boolean hasStableIds() {
-	      return true;
-	    }
-
-	  }
 
 		@Override
 		public boolean onOptionsItemSelected(MenuItem item) {
