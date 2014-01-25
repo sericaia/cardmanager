@@ -1,0 +1,18 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    
+     <!-- BUTTON STYLES - TODO-->
+<style name="UiSignInButtonStyle">
+    <item name="android:background">@color/orange</item>
+    <item name="android:textColor">@color/beige</item>
+    <item name="android:typeface">sans</item>
+    <item name="android:shadowColor">@color/white</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">2</item>
+    <item name="android:shadowRadius">3</item>
+</style>
+
+
+
+
+</resources>
